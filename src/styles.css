@@ -21,7 +21,6 @@ body {
   overflow: hidden;
 }
 
-/* Розмиті кольорові плями на фоні */
 .blob {
   position: fixed;
   width: 380px;
@@ -49,7 +48,6 @@ body {
   to { transform: translate(60px, 40px) scale(1.15); }
 }
 
-/* Скляна картка */
 .calculator {
   position: relative;
   width: 340px;
@@ -88,7 +86,6 @@ h1 span {
   color: var(--add);
 }
 
-/* Екран результату */
 .screen {
   min-height: 92px;
   padding: 12px 16px;
@@ -125,7 +122,6 @@ h1 span {
   text-shadow: 0 0 12px rgba(255, 92, 138, 0.5);
 }
 
-/* Поля вводу */
 input {
   width: 100%;
   padding: 13px 16px;
@@ -148,7 +144,6 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(124, 108, 255, 0.25);
 }
 
-/* Кнопки дій */
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
