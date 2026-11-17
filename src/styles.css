@@ -1,0 +1,186 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --add: #2ee6a6;
+  --sub: #ff5c8a;
+  --mul: #ffb347;
+  --div: #7c6cff;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0b0d1a;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #e8eaff;
+  overflow: hidden;
+}
+
+/* Розмиті кольорові плями на фоні */
+.blob {
+  position: fixed;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.55;
+  animation: float 10s ease-in-out infinite alternate;
+}
+
+.blob-1 {
+  background: #7c6cff;
+  top: -80px;
+  left: -80px;
+}
+
+.blob-2 {
+  background: #2ee6a6;
+  bottom: -100px;
+  right: -60px;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  to { transform: translate(60px, 40px) scale(1.15); }
+}
+
+/* Скляна картка */
+.calculator {
+  position: relative;
+  width: 340px;
+  padding: 26px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--add);
+  box-shadow: 0 0 12px var(--add);
+}
+
+h1 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+h1 span {
+  color: var(--add);
+}
+
+/* Екран результату */
+.screen {
+  min-height: 92px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  text-align: right;
+}
+
+.screen small {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.45;
+}
+
+.result-line {
+  margin-top: 6px;
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 32px;
+  word-break: break-all;
+  color: var(--add);
+  text-shadow: 0 0 14px rgba(46, 230, 166, 0.55);
+}
+
+.result-line .error {
+  display: inline-block;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.3;
+  color: var(--sub);
+  text-shadow: 0 0 12px rgba(255, 92, 138, 0.5);
+}
+
+/* Поля вводу */
+input {
+  width: 100%;
+  padding: 13px 16px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input::placeholder {
+  color: rgba(232, 234, 255, 0.4);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--div);
+  box-shadow: 0 0 0 3px rgba(124, 108, 255, 0.25);
+}
+
+/* Кнопки дій */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 6px;
+}
+
+button {
+  --c: var(--div);
+  padding: 14px 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--c);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--c);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+button[data-op="+"] { --c: var(--add); }
+button[data-op="-"] { --c: var(--sub); }
+button[data-op="*"] { --c: var(--mul); }
+button[data-op="/"] { --c: var(--div); }
+
+button:hover {
+  color: #0b0d1a;
+  background: var(--c);
+  box-shadow: 0 0 22px var(--c);
+  transform: translateY(-3px);
+}
+
+button:active {
+  transform: translateY(0) scale(0.95);
+}

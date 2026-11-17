@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <main class="calculator">
+    <header>
+      <span class="dot"></span>
+      <h1>CALC<span>.</span>js</h1>
+    </header>
+
+    <div class="screen">
+      <small>результат</small>
+      <div class="result-line"><span id="result">—</span></div>
+    </div>
+
+    <input type="text" id="num1" placeholder="Перше число" autocomplete="off">
+    <input type="text" id="num2" placeholder="Друге число" autocomplete="off">
+
+    <div class="buttons">
+      <button data-op="+">+</button>
+      <button data-op="-">−</button>
+      <button data-op="*">×</button>
+      <button data-op="/">÷</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
